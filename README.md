@@ -10,3 +10,8 @@ Django project with personal organization tools
 djorg - refers to overall project
 djorg/djorg/urls.py - inner djorg folder refers to the settings for this project
 
+#Make a bookmark
+1. ./manage.py shell
+2. from bookmark.models import Bookmark
+3. bookmark = Bookmark(name="Lambda School", url="https://lambdaschool.com")
+4. bookmark.save()
