@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     # Our apps
+    # 3rd party apps
+    'bootstrap4',
+    # Our apps
     'bookmarks',
 ]
 
