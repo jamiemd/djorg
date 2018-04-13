@@ -10,8 +10,22 @@ Django project with personal organization tools
 djorg - refers to overall project
 djorg/djorg/urls.py - inner djorg folder refers to the settings for this project
 
-#Make a bookmark
+
+# Migrations
+
+
+
+# Commands:
+- ./manage.py shell: django and python shell automatically has all django stuff available to it, like import models to database, django stuff
+- from bookmarks.model import Bookmark: import bookmark model 
+- dir(Bookmark): view object
+- Bookmarks.objects.all(): query set to return all bookmarks
+- len(Bookmark.object.count(): return count of all bookmarks
+- dir(Bookmark.objects): view 
+
+# Make a bookmark in the terminal
 1. ./manage.py shell
 2. from bookmark.models import Bookmark
-3. bookmark = Bookmark(name="Lambda School", url="https://lambdaschool.com")
-4. bookmark.save()
+3. bookmark = Bookmark(name="Lambda School", url="https://lambdaschool.com") - instantiate
+4. bookmark.save() - can view using Bookmarks.objects.all(), returns <QuerySet> which is an iterable, so not quite a python list but almost like it
+

@@ -1,0 +1,40 @@
+/* base */
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu a {
+  margin: 20px;
+  color: grey;
+}
+
+.content {
+  margin-top: 40px;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.content h1 {
+  color: #fca205;
+  margin: auto;
+  text-align: center;
+}
+
+/* index */
+
+h2 {
+  color: orange;
+}
+
+.pagewidth {
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-bottom: 50px;
+}
+
+button {
+  border-radius: 10px;
+
+}
