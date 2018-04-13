@@ -11,6 +11,20 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
+import dj_database_url
+
+DATABASES = {'default': dj_database_url.config(conn_max_age=600) }
+DATABASES = {'default': dj_database_url.config(default='DATABASE_URL') }
+DATABASES = {'default': dj_database_url.parse('DATABASE_URL', conn_max_age=600) }
+
+
+MIDDLEWARE_CLASSES = [
+  # 'django.middleware.security.SecurityMiddleware',
+  'whitenoise.middleware.WhiteNoiseMiddleware',
+  # ...
+]
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +34,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-85+sf*rq1md%=yi_8tm)f&#ui3$810ey7tyj%y*u2kac8r9km'
+SECRET_KEY ='6)&*6g+c%@sji3q7zjw0zk+do(**@3-cv%z@4h67f)%8882=kb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
