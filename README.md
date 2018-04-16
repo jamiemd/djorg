@@ -1,11 +1,6 @@
 # djorg
 Django project with personal organization tools
 
-login:
-admin
-admin@admin.com
-djorg123
-
 # Bookmarks (all in context of bookmarks app)
 1. Made model and set up fields for our model (models.py)
 2. Made a view that queries the model and renders the template from data in the model (view.py)
