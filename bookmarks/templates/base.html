@@ -1,32 +1,25 @@
-<!-- load bootstraps -->
-{% load bootstrap4 %} {% load static %}
+{% load bootstrap4 %}
 
 <!DOCTYPE html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-
     <title>{% block title %}Djorg{% endblock %}</title>
-    {% bootstrap_css %} 
+    {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-    <!-- jquery integrity check  -->
 </head>
 
 <body>
-
-    <div class="menu">
+    <div id="menu">
         {% block menu %}
-        <a href="/">Home</a>
-        <a href="/bookmarks/">Bookmarks</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/bookmarks/">Bookmarks</a></li>
+        </ul>
         {% endblock %}
     </div>
 
-    <div class="content">
-        {% block content %}
-        <h1>Welcome to Djorg!</h1>
-        {% endblock %}
+    <div id="content">
+        {% block content %}<h1>Welcome to Djorg!</h1>{% endblock %}
     </div>
-
 </body>
 
 </html>
