@@ -20,6 +20,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        # TODO: remove this after React front-end can auth properly
         if settings.DEBUG:
             return Note.objects.all()
         elif user.is_anonymous:
