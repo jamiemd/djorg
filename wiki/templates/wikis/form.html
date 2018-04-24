@@ -1,0 +1,10 @@
+{% load bootstrap4 %}
+
+<form method="POST" class="pagewidth">
+    <h2>New Wiki</h2>
+
+    {% csrf_token %} 
+    {% buttons %}
+    <button type="submit">Save</button>
+    {% endbuttons %}
+</form>
