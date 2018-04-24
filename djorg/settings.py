@@ -32,6 +32,9 @@ CORS_ORIGIN_WHITELIST = config('ALLOWED_CLIENTS').split(',')
 
 # ALLOWED_HOSTS = ['localhost']
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,6 +57,7 @@ INSTALLED_APPS = [
     # Our apps
     'bookmarks',
     'notes',
+    'wiki',
 ]
 
 MIDDLEWARE = [

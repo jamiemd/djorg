@@ -28,5 +28,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('bookmarks/', include('bookmarks.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
+    path('wiki/', include('wiki.urls')),
     path('', TemplateView.as_view(template_name='base.html')),
 ]
