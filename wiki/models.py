@@ -7,15 +7,17 @@ class Wiki(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField(blank=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_published = models.BooleanField(default=False, verbose_name="Publish?")
-    created_at = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
+    published = models.BooleanField(default=False, verbose_name="Publish?")
+    created= models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     @property
     def content_length(self):
         return len(self.content)
 
-class EditWiki(models.Model):
+class Edit(models.Model):
     wiki = models.ForeignKey(Wiki, on_delete=models.CASCADE, )
+    title = models.CharField(max_length=200)
+    content = models.TextField(blank=False)
     editor = models.ForeignKey(User, on_delete=models.CASCADE)
     edited_on = models.DateTimeField(auto_now_add=True)
