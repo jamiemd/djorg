@@ -15,9 +15,12 @@ class Wiki(models.Model):
     def content_length(self):
         return len(self.content)
 
-class Edit(models.Model):
+
+class Add(models.Model):
     wiki = models.ForeignKey(Wiki, on_delete=models.CASCADE, )
     title = models.CharField(max_length=200)
     content = models.TextField(blank=False)
-    editor = models.ForeignKey(User, on_delete=models.CASCADE)
-    edited_on = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    modified = models.DateTimeField(auto_now=True)
+
+    
