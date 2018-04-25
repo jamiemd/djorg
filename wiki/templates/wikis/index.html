@@ -12,9 +12,9 @@
     <h2>Wikis</h2>
     {% if wikis %}
     <ol>
-        {% for bookmark in bookmarks %}
+        {% for wiki in wikis %}
         <li>
-            <a href="{{ wiki.url }}">{{ wiki.title }}</a>
+            {{ wiki.title }}
         </li>
         {% endfor %}
     </ol>
@@ -23,6 +23,6 @@
     {% endif %}
 </div>
 <!-- add the form -->
-<!-- {% include "wikis/form.html" %}  -->
+{% include "wikis/form.html" %} 
 
 {% endblock %}
