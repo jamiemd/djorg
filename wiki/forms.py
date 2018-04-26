@@ -1,8 +1,8 @@
 from django import forms
-from .models import Add
+from .models import Wiki
 
 class WikiForm(forms.ModelForm):  
 
     class Meta: 
-        model = Add
-        fields = ('title', 'content')
+        model = Wiki
+        fields = ('title', 'author', 'content')

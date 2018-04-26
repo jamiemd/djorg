@@ -11,16 +11,20 @@ class Wiki(models.Model):
     created= models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
-    @property
-    def content_length(self):
-        return len(self.content)
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
 
 
-class Add(models.Model):
-    wiki = models.ForeignKey(Wiki, on_delete=models.CASCADE, )
-    title = models.CharField(max_length=200)
-    content = models.TextField(blank=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    modified = models.DateTimeField(auto_now=True)
+
+# class Add(models.Model):
+#     wiki = models.ForeignKey(Wiki, on_delete=models.CASCADE, )
+#     title = models.CharField(max_length=200)
+#     content = models.TextField(blank=False)
+#     author = models.ForeignKey(User, on_delete=models.CASCADE)
+#     modified = models.DateTimeField(auto_now=True)
 
     
