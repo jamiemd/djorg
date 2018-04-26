@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render
-from .forms import WikiForm 
+from .forms import WikiForm, EditForm
 from .models import Wiki 
 
 def wiki_base(request): 
@@ -13,8 +13,7 @@ def list(request):
 
 
 def page(request, id):  
-    context = {'wiki_id': Wiki.objects.get(id=id)} 
-    print('id', id)
+    context = {'wiki': Wiki.objects.get(id=id)} 
     return render(request, 'page.html', context) 
 
 
@@ -26,3 +25,24 @@ def add(request):
 
     context = {'add': WikiForm()} 
     return render(request, 'add.html', context) 
+
+
+def edit(request, id): 
+    wiki = Wiki.objects.get(id=id)
+    if request.method == 'POST': 
+        form = EditForm(request.POST, instance=wiki) 
+        if form.is_valid(): 
+            form.save() 
+            return redirect(id)
+    context = {'form': EditForm(instance=wiki), 'wiki': wiki} 
+    return render(request, 'edit.html', context) 
+
+
+# def delete(request, id):
+#     wiki = Wiki.objects.get(id=id)
+#     if request.method == 'POST': 
+#         form = EditForm(request.POST, instance=wiki) 
+#             form.delete() 
+#             return redirect(id)
+#     context = {'form': EditForm(instance=wiki), 'wiki': wiki} 
+#     return render(request, 'edit.html', context) 

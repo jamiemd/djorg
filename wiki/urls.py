@@ -7,6 +7,6 @@ urlpatterns = [ # define list that matches and adds to views
     path('list', views.list),
     path('add', views.add),
     path('page/<uuid:id>', views.page),
-    # path('edit', views.edit_wiki),
+    path('edit/<uuid:id>', views.edit),
    
 ]

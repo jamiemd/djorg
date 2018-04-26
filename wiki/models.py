@@ -11,20 +11,13 @@ class Wiki(models.Model):
     created= models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+class EditWiki(models.Model):
+    page = models.ForeignKey(Wiki, related_name='revisions', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField(blank=False)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    published = models.BooleanField(default=False, verbose_name="Publish?")
+    created= models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.title
 
-
-
-# class Add(models.Model):
-#     wiki = models.ForeignKey(Wiki, on_delete=models.CASCADE, )
-#     title = models.CharField(max_length=200)
-#     content = models.TextField(blank=False)
-#     author = models.ForeignKey(User, on_delete=models.CASCADE)
-#     modified = models.DateTimeField(auto_now=True)
-
-    
