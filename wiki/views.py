@@ -22,9 +22,9 @@ def add(request):
         form = WikiForm(request.POST) 
         if form.is_valid(): 
             form.save() 
-
     context = {'add': WikiForm()} 
     return render(request, 'add.html', context) 
+
 
 
 # def edit(request, id): 
