@@ -1,0 +1,19 @@
+{% extends "wiki_base.html" %}
+{% load static %} 
+{% load bootstrap4 %}
+
+{% block title %}Djorg - Wikis{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="pagewidth">
+    <h2>New Wiki</h2>
+
+    {% csrf_token %} 
+    {% buttons %}
+    {% bootstrap_form add %}
+    <button type="submit">Save</button>
+    {% endbuttons %}
+</form>
+
+{% endblock %}

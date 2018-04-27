@@ -1,0 +1,34 @@
+{% extends "wiki_base.html" %}
+<!-- inherit from base.html file -->
+{% load static %} {% load bootstrap4 %}
+
+<!-- overwrite title from base.html -->
+{% block title %}Djorg - Wikis{% endblock %}
+
+<!-- inside base.html block -->
+{% block content %}
+<div class="pagewidth">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% if wiki %}
+        <h2>{{ wiki.title }}</h2>
+        <h6>Author: {{ wiki.author }}</h6>
+        <div style="font-size:12px;">
+            Creation Date: {{ wiki.created }}    
+        <br>
+            Last Modified: {{ wiki.modified }}   
+        </div>
+        <a href="/wiki/revision_history/{{wiki.id}}">Revision History</a>
+        <br>
+        <p style="margin-top:20px;">{{ wiki.content }}</p>     
+    {% else %}
+    <p>No Wiki available - you should add some!</p>
+    {% endif %}
+    <div style="margin-top: 50px;">
+    <a href="/wiki/edit/{{wiki.id}}">Edit Wiki</a>
+    <br>
+    <a href="/wiki/delete/{{wiki.id}}">Delete Wiki</a>
+    </div>
+</div>
+
+
+{% endblock %}

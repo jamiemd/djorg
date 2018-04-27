@@ -1,0 +1,22 @@
+{% extends "wiki_base.html" %}
+<!-- inherit from base.html file -->
+{% load static %} {% load bootstrap4 %}
+
+<!-- overwrite title from base.html -->
+{% block title %}Djorg - Wikis{% endblock %}
+
+<!-- inside base.html block -->
+{% block content %}
+<div class="pagewidth">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <h2>{{ wiki.title }}</h2>
+        <div style="font-size:12px;">
+            Creation Date: {{ wiki.created }}    
+        <br>
+            Last Modified: {{ wiki.modified }}   
+        </div>
+     
+</div>
+
+
+{% endblock %}
