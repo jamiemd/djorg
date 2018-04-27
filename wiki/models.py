@@ -11,7 +11,7 @@ class Wiki(models.Model):
     created= models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
-class EditForm(models.Model):
+class Revision(models.Model):
     page = models.ForeignKey(Wiki, related_name='revisions', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField(blank=False)

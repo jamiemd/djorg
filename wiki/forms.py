@@ -5,12 +5,12 @@ class WikiForm(forms.ModelForm):
 
     class Meta: 
         model = Wiki
-        fields = ('title', 'author', 'content')
+        fields = ('title', 'content')
 
 
 class EditForm(forms.ModelForm):  
 
     class Meta: 
         model = EditForm
-        fields = ('title', 'author', 'content')
+        fields = ('title', 'content')
 
